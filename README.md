@@ -4,3 +4,4 @@
 1. Numbers Detector - Implementing Initial Series Detector
 2. Numbers Detector - Implementing some other properties detection
 
+3. Times Table - Implement better UI
