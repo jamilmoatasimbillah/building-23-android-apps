@@ -5,3 +5,5 @@
 2. Numbers Detector - Implementing some other properties detection
 
 3. Times Table - Implement better UI
+
+4. Brain Trainer - Include other mathematical Operations also
