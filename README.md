@@ -23,3 +23,9 @@
   <li>Better API key management practices</li>
   <li>Better and Processed data output showing</li>
 </ul>
+
+<ul>
+  <b>Hiker's Watch</b>
+  <li>Add option to set upadate-frequency</li>
+  <li>Show option to open the map</li>
+</ul>
