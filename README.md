@@ -1,9 +1,12 @@
 # building-23-android-apps
 
 #### Tasks Left
-1. Numbers Detector - Implementing Initial Series Detector
-2. Numbers Detector - Implementing some other properties detection
+A.1. Numbers Detector - Implementing Initial Series Detector
+A.2. Numbers Detector - Implementing some other properties detection
 
-3. Times Table - Implement better UI
+B.1. Times Table - Implement better UI
 
-4. Brain Trainer - Include other mathematical Operations also
+C.1 Brain Trainer - Include other mathematical Operations also
+
+D.1. Weather Watcher - Better API key management practices
+D.2. Weather Watcher - Better and Processed data output showing
