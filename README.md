@@ -28,4 +28,12 @@
   <b>Hiker's Watch</b>
   <li>Add option to set upadate-frequency</li>
   <li>Show option to open the map</li>
+  <li>Add Compass</li>
+  <li>Functionality to create new Exciting Journey</li>
+  <li>Add Checkpoints to a journey</li>
+</ul>
+
+<ul>
+  <b>Memorable Places</b>
+  <li>Funtionality to parmanent storage</li>
 </ul>
