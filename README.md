@@ -35,5 +35,6 @@
 
 <ul>
   <b>Memorable Places</b>
-  <li>Funtionality to parmanent storage</li>
+  <li>Funtionality to parmanent storage: Completed</li>
+  <li>Functionality to add some notes</li>
 </ul>
