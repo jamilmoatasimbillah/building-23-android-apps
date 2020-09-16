@@ -2,7 +2,9 @@ package com.example.memorableplaces
 
 import android.Manifest
 import android.content.Context
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
+import android.content.res.XmlResourceParser
 import android.location.Geocoder
 import android.location.Location
 import android.location.LocationListener
@@ -10,9 +12,11 @@ import android.location.LocationManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.util.Xml
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.edit
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -20,11 +24,14 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import org.json.JSONTokener
+import java.io.Serializable
 import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapLongClickListener {
+    private lateinit var sharedPreferences: SharedPreferences
     private lateinit var geocoder: Geocoder
     private lateinit var locationManager: LocationManager
     private lateinit var locationListener: LocationListener
@@ -71,8 +78,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapLon
             location.longitude = MainActivity.locationList[index].longitude
             location.latitude = MainActivity.locationList[index].latitude
             centerMapOnLocation(location, MainActivity.placesList[index])
-            println( "${MainActivity.locationList[index].longitude} == ${location.longitude}")
-            println(MainActivity.locationList[index].latitude == location.latitude)
         }
     }
 
@@ -94,6 +99,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapLon
             MainActivity.locationList.add(location)
             MainActivity.placesList.add(address)
             MainActivity.activity.updateFromOutside()
+            val placesString = sharedPreferences.getString("places", "")+"$address<||>"
+            val locationsString = sharedPreferences.getString("locations", "")+"${location.latitude},${location.longitude}<||>"
+            sharedPreferences.edit().putString("places", placesString).apply()
+            sharedPreferences.edit().putString("locations", locationsString).apply()
             makeToast("Location Saved...")
         }catch (e:Exception){
             Log.e("onMapLongClick", e.stackTraceToString())
@@ -134,6 +143,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapLon
 
     private fun initializeIntent(){
         intent.putExtra("@INIT", true)
+        sharedPreferences = getSharedPreferences("com.example.memorableplaces", Context.MODE_PRIVATE)
     }
 
     private fun initializeServices(){
