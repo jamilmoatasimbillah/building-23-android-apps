@@ -38,3 +38,9 @@
   <li>Funtionality to parmanent storage: Completed</li>
   <li>Functionality to add some notes</li>
 </ul>
+
+<ul>
+  <b>Useful Notes</b>
+  <li>Funtionality to parmanent storage: With SQLITE</li>
+  <li>Meta data collection of the note</li>
+</ul>
